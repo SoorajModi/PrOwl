@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+from setuptools import setup, find_packages
+
+with open('README.md') as f:
+    readme = f.read()
+
+with open('LICENSE') as f:
+    license = f.read()
+
+
+# the setup
+setup(
+    name='owl',
+    version='0.1.0',
+    description='A Reddit Bot',
+    long_description=readme,
+    url='https://github.com/soorajmodi/owl',
+    author='Sooraj Modi',
+    author_email='soorajmodi@hotmail.com',
+    license=license,
+    keywords=[
+        'Reddit Bot',
+        'PRAW'
+    ],
+    packages=find_packages(exclude=('docs', 'tests', 'env', 'index.py')),
+    include_package_data=True,
+    install_requires=[
+    ],
+    extras_require={
+        'dev': [],
+        'docs': [],
+        'testing': [],
+    },
+)
