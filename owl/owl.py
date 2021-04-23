@@ -1,16 +1,17 @@
-from .stream import stream
-from .scan import scan
+from .reddit import stream
+from .scan import is_match
+from .notify import notify
 
 submission_stream = stream()
 
 
 def watch():
-    while True:
-        for submission in submission_stream:
-            text = submission.selftext
-            res = scan(text)
-            print(submission.title)
-            if res != -1:
-                print("Found")
-            else:
-                print("Not Found")
+    for submission in submission_stream:
+        handle_submission(submission)
+
+
+def handle_submission(submission):
+    if is_match(submission.selftext):
+        notify(submission)
+    else:
+        print('Match not found')
