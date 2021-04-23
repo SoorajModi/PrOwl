@@ -105,9 +105,3 @@ venv.bak/
 
 # JetBrains
 .idea
-owl/notify/__init__.py
-owl/notify/notify.py
-owl/reddit/__init__.py
-owl/reddit/reddit.py
-owl/scan/__init__.py
-owl/scan/scan.py
