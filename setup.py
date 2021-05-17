@@ -10,7 +10,7 @@ with open('LICENSE') as f:
 
 # the setup
 setup(
-    name='owl',
+    name='PyOwl',
     version='0.1.0',
     description='A Reddit Bot',
     long_description=readme,
