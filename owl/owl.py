@@ -13,5 +13,3 @@ def watch():
 def handle_submission(submission, keywords: str, message: str):
     if is_match(submission.selftext, keywords):
         notify(submission, message)
-    else:
-        print('Match not found ' + submission.title)

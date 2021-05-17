@@ -13,7 +13,6 @@ SUBJECT: str = "Owl found a match"
 
 
 def notify(submission, template: str):
-    print("match found")
     requests.post(URL,
                   auth=("api", API_KEY),
                   data={"from": CLIENT,
