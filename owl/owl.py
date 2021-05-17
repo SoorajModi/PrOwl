@@ -9,14 +9,17 @@ logging.basicConfig(level='INFO', format=log_format)
 submission_stream = stream()
 
 
-def watch():
+def watch() -> None:
     for submission in submission_stream:
         handle_submission(submission)
 
 
-def handle_submission(submission):
-    logging.info('Scanning submission... {' + submission.title + '}')
+def handle_submission(submission) -> None:
+    logging.info(f'Scanning submission...{submission.title}')
 
     if is_match(submission.selftext, "owl/scan/keywords.txt"):
-        logging.warning("Match found")
+        logging.warning(f'Match found...{{\n'
+                        f'\title: {submission.title},\n '
+                        f'\tlink: {submission.link},\n '
+                        f'\tcontent: {submission.selftext}\n}}')
         notify(submission, "owl/notify/message.txt")
