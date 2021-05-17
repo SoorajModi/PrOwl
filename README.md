@@ -1,7 +1,18 @@
 # PyOwl
 
-A Reddit Bot to watch a subreddit for keywords.
+A Reddit watch bot.
 
 ## How to run
 
-`python index.py`
+Install requirements: `pip install -r requirements.txt`
+
+Run: `python index.py`
+
+## How it works
+
+PyOwl taps into the `new` feed for a given subreddit and analyzes the contents of each reddit submission to find a set of keywords.
+Upon finding a match, PyOwl will send an email to a specified recipient using [Mailgun](https://app.mailgun.com). 
+
+## License
+
+MIT
