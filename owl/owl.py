@@ -1,9 +1,9 @@
-"""This module will stream reddit posts and notify the recipient if a match is found
+"""This module will stream Reddit posts and notify the recipient if a match is found
 """
 
 import logging
 from .reddit import stream
-from .scan import is_match
+from .scan import contains_keywords
 from .notify import notify
 
 LOG_FORMAT = "%(asctime)s::%(levelname)s::%(name)s::%(filename)s::%(lineno)d::%(message)s"
@@ -28,7 +28,7 @@ def handle_submission(submission) -> None:
 
     logging.info(f'Scanning submission...{submission.title}')
 
-    if is_match(submission.selftext, "owl/scan/keywords.txt"):
+    if contains_keywords(submission.selftext, "owl/scan/keywords.txt"):
         logging.warning(f'Match found...{{\n'
                         f'\title: {submission.title},\n '
                         f'\tlink: {submission.link},\n '

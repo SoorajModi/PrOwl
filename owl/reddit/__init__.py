@@ -1,6 +1,6 @@
 """Reddit API interactions
 
-Stream reddit posts from a subreddit
+Stream Reddit posts from a subreddit
 
     Usage example:
 

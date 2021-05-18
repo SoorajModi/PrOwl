@@ -2,7 +2,7 @@
 """
 
 
-def is_match(text: str, filename: str) -> bool:
+def contains_keywords(text: str, filename: str) -> bool:
     """Check if text contains a keyword from a list of keywords
 
     :param text: text to scan

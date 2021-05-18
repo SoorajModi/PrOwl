@@ -6,6 +6,8 @@ A Reddit watch bot.
 
 Install requirements: `pip install -r requirements.txt`
 
+Run PyLint: `pylint **/*.py`
+
 Run: `python index.py`
 
 ## How it works
