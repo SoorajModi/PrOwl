@@ -1,5 +1,8 @@
+"""Stream Reddit posts from a specified subreddit
+"""
+
 import os
-import praw
+from praw import Reddit
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -11,17 +14,20 @@ USERNAME = os.getenv('USERNAME')
 PASSWORD = os.getenv('PASSWORD')
 SUBREDDIT = os.getenv('SUBREDDIT')
 
-reddit = praw.Reddit(
-    user_agent=USER_AGENT,
-    client_id=CLIENT_ID,
-    client_secret=CLIENT_SECRET,
-    username=USERNAME,
-    password=PASSWORD
-)
 
-reddit.read_only = True
-subreddit = SUBREDDIT
+def stream() -> Reddit.submission:
+    """Stream reddit submissions in real time
 
+    :return: Reddit submission
+    """
 
-def stream():
-    return reddit.subreddit(subreddit).stream.submissions(skip_existing=True)
+    reddit = Reddit(
+        user_agent=USER_AGENT,
+        client_id=CLIENT_ID,
+        client_secret=CLIENT_SECRET,
+        username=USERNAME,
+        password=PASSWORD
+    )
+    reddit.read_only = True
+
+    return reddit.subreddit(SUBREDDIT).stream.submissions(skip_existing=True)

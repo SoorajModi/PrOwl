@@ -1,3 +1,6 @@
+"""Send an email using Mailgun
+"""
+
 import os
 import requests
 from dotenv import load_dotenv
@@ -12,7 +15,14 @@ RECIPIENT: str = os.getenv('RECIPIENT')
 SUBJECT: str = "Owl found a match"
 
 
-def notify(submission, template: str):
+def notify(submission, template: str) -> None:
+    """Email recipient that a match was found
+
+    :param submission: matched Reddit submission
+    :param template: email template path
+    :return: None
+    """
+
     requests.post(URL,
                   auth=("api", API_KEY),
                   data={"from": CLIENT,

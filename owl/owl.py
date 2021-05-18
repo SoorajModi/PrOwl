@@ -1,22 +1,36 @@
+"""This module will stream reddit posts and notify the recipient if a match is found
+"""
+
 import logging
 from .reddit import stream
 from .scan import is_match
 from .notify import notify
 
-log_format = "%(asctime)s::%(levelname)s::%(name)s::%(filename)s::%(lineno)d::%(message)s"
-logging.basicConfig(level='INFO', format=log_format)
-
-submission_stream = stream()
+LOG_FORMAT = "%(asctime)s::%(levelname)s::%(name)s::%(filename)s::%(lineno)d::%(message)s"
+logging.basicConfig(level='INFO', format=LOG_FORMAT)
 
 
-def watch():
-    for submission in submission_stream:
+def watch() -> None:
+    """Stream reddit posts from a specified subreddit
+    :return: None
+    """
+
+    logging.info('PyOwl starting up...')
+    for submission in stream():
         handle_submission(submission)
 
 
-def handle_submission(submission):
-    logging.info('Scanning submission... {' + submission.title + '}')
+def handle_submission(submission) -> None:
+    """Scan a submission and notify recipient if match is found
+    :param submission: A Reddit submission
+    :return: None
+    """
+
+    logging.info(f'Scanning submission...{submission.title}')
 
     if is_match(submission.selftext, "owl/scan/keywords.txt"):
-        logging.warning("Match found")
+        logging.warning(f'Match found...{{\n'
+                        f'\title: {submission.title},\n '
+                        f'\tlink: {submission.link},\n '
+                        f'\tcontent: {submission.selftext}\n}}')
         notify(submission, "owl/notify/message.txt")
