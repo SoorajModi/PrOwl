@@ -1,4 +1,4 @@
-from prowl.scan import get_keywords
+from prowl.scan.scan import get_keywords
 
 
 def test_should_get_list_of_keywords():
