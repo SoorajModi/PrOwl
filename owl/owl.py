@@ -26,11 +26,12 @@ def handle_submission(submission) -> None:
     :return: None
     """
 
-    logging.info(f'Scanning submission...{submission.title}')
+    logging.info('Scanning submission...%s', submission.title)
 
     if contains_keywords(submission.selftext, "owl/scan/keywords.txt"):
-        logging.warning(f'Match found...{{\n'
-                        f'\title: {submission.title},\n '
-                        f'\tlink: {submission.link},\n '
-                        f'\tcontent: {submission.selftext}\n}}')
+        logging.warning('Match found...{{\n'
+                        '\title: %s,\n'
+                        '\tlink: %s,\n'
+                        '\tcontent: %s\n}}',
+                        submission.title, submission.link, submission.selftext)
         notify(submission, "owl/notify/message.txt")
