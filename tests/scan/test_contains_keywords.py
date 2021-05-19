@@ -1,4 +1,4 @@
-from owl.scan import contains_keywords
+from prowl.scan import contains_keywords
 
 
 def test_contains_keywords_return_true():

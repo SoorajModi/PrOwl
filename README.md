@@ -1,6 +1,7 @@
-# PyOwl
+# PrOwl
 
-A Reddit watch bot.
+Python Reddit Owl (PrOwl), a watch bot for Reddit. 
+Built using the [Python Reddit API Wrapper (PRAW)](https://praw.readthedocs.io/en/latest/).
 
 ## How to run
 

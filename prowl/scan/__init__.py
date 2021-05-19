@@ -5,10 +5,10 @@ Scan text and return if it matches a set of keywords
     Usage example:
 
     from .scan import is_match
-    contains_keywords(submission.selftext, "owl/scan/keywords.txt")
+    contains_keywords(submission.selftext, "prowl/scan/keywords.txt")
 
     from .scan import get_keywords
-    get_keywords("owl/scan/keywords.txt")
+    get_keywords("prowl/scan/keywords.txt")
 
 """
 
