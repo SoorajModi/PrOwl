@@ -4,7 +4,7 @@
 import os
 import requests
 from dotenv import load_dotenv
-from owl.notify.message import generate_message
+from prowl.notify.message import generate_message
 
 load_dotenv()
 

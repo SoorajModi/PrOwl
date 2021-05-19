@@ -1,6 +1,6 @@
 """Run PyOwl
 """
 
-import owl
+import prowl
 
-owl.watch()
+prowl.watch()

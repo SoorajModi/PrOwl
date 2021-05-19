@@ -10,17 +10,18 @@ with open('LICENSE') as f:
 
 # the setup
 setup(
-    name='PyOwl',
+    name='PrOwl',
     version='0.1.0',
     description='A Reddit Bot',
     long_description=readme,
-    url='https://github.com/soorajmodi/owl',
+    url='https://github.com/soorajmodi/prowl',
     author='Sooraj Modi',
     author_email='soorajmodi@hotmail.com',
     license=license,
     keywords=[
         'Reddit Bot',
-        'PRAW'
+        'PRAW',
+        'python'
     ],
     packages=find_packages(exclude=('docs', 'tests', 'env', 'index.py')),
     include_package_data=True,

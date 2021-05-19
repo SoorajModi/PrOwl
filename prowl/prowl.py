@@ -28,10 +28,10 @@ def handle_submission(submission) -> None:
 
     logging.info('Scanning submission...%s', submission.title)
 
-    if contains_keywords(submission.selftext, "owl/scan/keywords.txt"):
+    if contains_keywords(submission.selftext, "prowl/scan/keywords.txt"):
         logging.warning('Match found...{{\n'
                         '\title: %s,\n'
                         '\tlink: %s,\n'
                         '\tcontent: %s\n}}',
                         submission.title, submission.link, submission.selftext)
-        notify(submission, "owl/notify/message.txt")
+        notify(submission, "prowl/notify/message.txt")
