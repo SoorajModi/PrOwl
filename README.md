@@ -11,7 +11,7 @@ Run PyLint: `pylint **/*.py`
 
 Run PyTest: `python -m pytest`
 
-Run: `python index.py`
+Run: `python -m prowl`
 
 ## How it works
 
