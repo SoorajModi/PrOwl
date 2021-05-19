@@ -8,6 +8,8 @@ Install requirements: `pip install -r requirements.txt`
 
 Run PyLint: `pylint **/*.py`
 
+Run PyTest: `python -m pytest`
+
 Run: `python index.py`
 
 ## How it works
