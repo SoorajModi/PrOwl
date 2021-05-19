@@ -23,7 +23,7 @@ setup(
         'PRAW',
         'python'
     ],
-    packages=find_packages(exclude=('docs', 'tests', 'env', 'index.py')),
+    packages=find_packages(exclude=('docs', 'test', 'env', 'index.py')),
     include_package_data=True,
     install_requires=[
     ],
