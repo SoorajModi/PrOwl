@@ -35,3 +35,7 @@ def handle_submission(submission) -> None:
                         '\tcontent: %s\n}}',
                         submission.title, submission.link, submission.selftext)
         notify(submission, "prowl/notify/message.txt")
+
+
+if __name__ == "__main__":
+    watch()
