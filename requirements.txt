@@ -1,3 +1,6 @@
 requests
 praw
 python-dotenv
+pytest
+pylint
+
