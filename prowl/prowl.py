@@ -2,9 +2,9 @@
 """
 
 import logging
-from .reddit import stream
-from .scan import contains_keywords
-from .notify import notify
+from .reddit.reddit import stream
+from .scan.scan import contains_keywords
+from .notify.notify import notify
 
 LOG_FORMAT = "%(asctime)s::%(levelname)s::%(name)s::%(filename)s::%(lineno)d::%(message)s"
 logging.basicConfig(level='INFO', format=LOG_FORMAT)
@@ -35,7 +35,3 @@ def handle_submission(submission) -> None:
                         '\tcontent: %s\n}}',
                         submission.title, submission.link, submission.selftext)
         notify(submission, "prowl/notify/message.txt")
-
-
-if __name__ == "__main__":
-    watch()
