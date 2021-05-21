@@ -12,22 +12,22 @@ CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 USERNAME = os.getenv('USERNAME')
 PASSWORD = os.getenv('PASSWORD')
-SUBREDDIT = os.getenv('SUBREDDIT')
+
+REDDIT = Reddit(
+    user_agent=USER_AGENT,
+    client_id=CLIENT_ID,
+    client_secret=CLIENT_SECRET,
+    username=USERNAME,
+    password=PASSWORD,
+)
+
+REDDIT.read_only = True
 
 
-def stream() -> Reddit.submission:
+def stream(subreddits: str) -> Reddit.submission:
     """Stream reddit submissions in real time
 
     :return: Reddit submission
     """
 
-    reddit = Reddit(
-        user_agent=USER_AGENT,
-        client_id=CLIENT_ID,
-        client_secret=CLIENT_SECRET,
-        username=USERNAME,
-        password=PASSWORD
-    )
-    reddit.read_only = True
-
-    return reddit.subreddit(SUBREDDIT).stream.submissions(skip_existing=True)
+    return REDDIT.subreddit(subreddits).stream.submissions(skip_existing=True)
