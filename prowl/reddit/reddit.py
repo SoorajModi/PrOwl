@@ -5,6 +5,8 @@ import os
 from praw import Reddit
 from dotenv import load_dotenv
 
+from prowl.utility.read_file import read_file_by_line
+
 load_dotenv()
 
 USER_AGENT = os.getenv('USER_AGENT')
@@ -24,10 +26,21 @@ REDDIT = Reddit(
 REDDIT.read_only = True
 
 
-def stream(subreddits: str) -> Reddit.submission:
+def stream(subreddit: str) -> Reddit.submission:
     """Stream reddit submissions in real time
 
     :return: Reddit submission
     """
 
-    return REDDIT.subreddit(subreddits).stream.submissions(skip_existing=True)
+    return REDDIT.subreddit(subreddit).stream.submissions(skip_existing=True)
+
+
+def get_subreddit(filename: str) -> str:
+    """Will collect list of subreddits from a file into a string
+
+    :param filename: the path to the file with a list of
+    :return: a `+` separated string with all subreddits
+    """
+
+    subreddit: list = read_file_by_line(filename)
+    return '+'.join(subreddit)
