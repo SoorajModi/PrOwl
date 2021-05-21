@@ -2,12 +2,16 @@
 """
 
 import logging
+
+from prowl.reddit.subreddit import get_subreddits
 from .reddit.reddit import stream
 from .scan.scan import contains_keywords
 from .notify.notify import notify
 
 LOG_FORMAT = "%(asctime)s::%(levelname)s::%(name)s::%(filename)s::%(lineno)d::%(message)s"
 logging.basicConfig(level='INFO', format=LOG_FORMAT)
+
+SUBREDDITS: str = get_subreddits('prowl/reddit/subreddits.txt')
 
 
 def watch() -> None:
@@ -16,7 +20,7 @@ def watch() -> None:
     """
 
     logging.info('PyOwl starting up...')
-    for submission in stream():
+    for submission in stream(SUBREDDITS):
         handle_submission(submission)
 
 
