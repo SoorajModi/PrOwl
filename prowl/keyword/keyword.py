@@ -3,9 +3,9 @@
 
 
 def contains_keywords(text: str, filename: str) -> bool:
-    """Check if text contains a keyword from a list of keywords
+    """Check if text contains a keyword from a list of keyword
 
-    :param text: text to scan
+    :param text: text to keyword
     :param filename: file to read from
     :return: true if match is found, false if no match
     """
@@ -14,10 +14,10 @@ def contains_keywords(text: str, filename: str) -> bool:
 
 
 def get_keywords(filename: str) -> list:
-    """Read keywords from file and return as list of strings
+    """Read keyword from file and return as list of strings
 
     :param filename: file to read from
-    :return: list of keywords
+    :return: list of keyword
     """
 
     with open(filename, 'r', encoding='utf-8') as file_content:
