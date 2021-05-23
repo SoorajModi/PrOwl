@@ -23,7 +23,7 @@ def watch() -> None:
     :return: None
     """
 
-    logging.info('PyOwl starting up...')
+    logging.info('Starting PrOwl...')
     for submission in stream(SUBREDDIT):
         handle_submission(submission)
 

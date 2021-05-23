@@ -7,6 +7,9 @@ with open('README.md') as f:
 with open('LICENSE') as f:
     license = f.read()
 
+with open('requirements.txt') as f:
+    requirements = f.read()
+
 
 setup(
     name='PrOwl',
@@ -22,13 +25,7 @@ setup(
         'PRAW',
         'python'
     ],
-    packages=find_packages(exclude=('docs', 'test', 'env', 'index.py')),
+    packages=find_packages(exclude=('docs', 'test', 'env')),
     include_package_data=True,
-    install_requires=[
-        'requests',
-        'praw',
-        'python-dotenv',
-        'pytest',
-        'pylint',
-    ],
+    install_requires=requirements,
 )
