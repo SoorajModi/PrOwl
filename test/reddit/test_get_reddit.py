@@ -1,4 +1,4 @@
-from prowl.reddit.reddit import get_subreddit
+from prowl.reddit.subreddit import get_subreddit
 
 
 def test_return_one_subreddit():

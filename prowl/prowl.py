@@ -5,7 +5,8 @@ import logging
 from string import Template
 
 from prowl.notify.message import get_template
-from .reddit.reddit import stream, get_subreddit
+from prowl.reddit.subreddit import get_subreddit
+from .reddit.reddit import stream
 from .keyword.keyword import contains_keywords, get_keywords
 from .notify.notify import notify
 
