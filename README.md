@@ -5,7 +5,7 @@ Built using the [Python Reddit API Wrapper (PRAW)](https://praw.readthedocs.io/e
 
 ## How to run
 
-Install requirements: `pip install -r requirements.txt`
+Install requirements: `pip install .` or `pip install -r requirements.txt`
 
 Run PyLint: `pylint **/*.py`
 
