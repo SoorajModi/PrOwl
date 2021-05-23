@@ -1,6 +1,6 @@
 """Scan text and check if it contains a keyword
 """
-from prowl.utility.read_file import read_file_by_line
+from prowl.utility.file import read_file_by_line
 
 
 def contains_keywords(text: str, keywords: list) -> bool:

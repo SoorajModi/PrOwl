@@ -3,7 +3,7 @@
 
 from string import Template
 
-from prowl.utility.read_file import read_file
+from prowl.utility.file import read_file
 
 
 def generate_message(submission, template: Template) -> str:

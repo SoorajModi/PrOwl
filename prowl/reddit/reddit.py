@@ -5,7 +5,7 @@ import os
 from praw import Reddit
 from dotenv import load_dotenv
 
-from prowl.utility.read_file import read_file_by_line
+from prowl.utility.file import read_file_by_line
 
 load_dotenv()
 
