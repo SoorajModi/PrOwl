@@ -3,8 +3,10 @@
 
 from string import Template
 
+from prowl.utility.file import read_file
 
-def generate_message(submission, template: str) -> str:
+
+def generate_message(submission, template: Template) -> str:
     """Generate an email message
 
     :param submission: Reddit submission
@@ -12,19 +14,17 @@ def generate_message(submission, template: str) -> str:
     :return: message
     """
 
-    template = read_template(template)
     return template.substitute(title=submission.title,
                                link=submission.url,
                                post=submission.selftext)
 
 
-def read_template(template: str) -> Template:
-    """Read template
+def get_template(template: str) -> Template:
+    """Read template from file
 
     :param template: path to template
     :return: Template
     """
 
-    with open(template, 'r', encoding='utf-8') as template_file:
-        template_file_content = template_file.read()
+    template_file_content: str = read_file(template)
     return Template(template_file_content)

@@ -2,16 +2,20 @@
 """
 
 import logging
+from string import Template
 
-from prowl.reddit.subreddit import get_subreddits
+from prowl.notify.message import get_template
+from prowl.reddit.subreddit import get_subreddit
 from .reddit.reddit import stream
-from .scan.scan import contains_keywords
+from .keyword.keyword import contains_keywords, get_keywords
 from .notify.notify import notify
 
 LOG_FORMAT = "%(asctime)s::%(levelname)s::%(name)s::%(filename)s::%(lineno)d::%(message)s"
 logging.basicConfig(level='INFO', format=LOG_FORMAT)
 
-SUBREDDITS: str = get_subreddits('prowl/reddit/subreddits.txt')
+SUBREDDIT: str = get_subreddit('prowl/reddit/subreddits.txt')
+KEYWORD: list = get_keywords('prowl/keyword/keywords.txt')
+TEMPLATE: Template = get_template('prowl/notify/template.txt')
 
 
 def watch() -> None:
@@ -20,7 +24,7 @@ def watch() -> None:
     """
 
     logging.info('PyOwl starting up...')
-    for submission in stream(SUBREDDITS):
+    for submission in stream(SUBREDDIT):
         handle_submission(submission)
 
 
@@ -32,10 +36,10 @@ def handle_submission(submission) -> None:
 
     logging.info('Scanning submission...%s', submission.title)
 
-    if contains_keywords(submission.selftext, "prowl/scan/keywords.txt"):
+    if contains_keywords(submission.selftext, KEYWORD):
         logging.warning('Match found...{{\n'
                         '\title: %s,\n'
                         '\tlink: %s,\n'
                         '\tcontent: %s\n}}',
                         submission.title, submission.link, submission.selftext)
-        notify(submission, "prowl/notify/message.txt")
+        notify(submission, TEMPLATE)

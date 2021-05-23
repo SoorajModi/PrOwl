@@ -24,10 +24,11 @@ REDDIT = Reddit(
 REDDIT.read_only = True
 
 
-def stream(subreddits: str) -> Reddit.submission:
+def stream(subreddit: str) -> Reddit.submission:
     """Stream reddit submissions in real time
 
     :return: Reddit submission
     """
 
-    return REDDIT.subreddit(subreddits).stream.submissions(skip_existing=True)
+    return REDDIT.subreddit(subreddit).stream.submissions(skip_existing=True)
+

@@ -1,12 +1,12 @@
-from prowl.scan.scan import get_keywords
+from prowl.utility.file import read_file_by_line
 
 
-def get_subreddits(filename: str) -> str:
+def get_subreddit(filename: str) -> str:
     """Will collect list of subreddits from a file into a string
 
     :param filename: the path to the file with a list of
-    :return: a + separated string with all subreddits
+    :return: a `+` separated string with all subreddits
     """
 
-    subreddit: list = get_keywords(filename)
+    subreddit: list = read_file_by_line(filename)
     return '+'.join(subreddit)

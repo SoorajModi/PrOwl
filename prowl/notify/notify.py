@@ -3,6 +3,7 @@
 
 import os
 import requests
+from string import Template
 from dotenv import load_dotenv
 from prowl.notify.message import generate_message
 
@@ -15,7 +16,7 @@ RECIPIENT: str = os.getenv('RECIPIENT')
 SUBJECT: str = "Owl found a match"
 
 
-def notify(submission, template: str) -> None:
+def notify(submission, template: Template) -> None:
     """Email recipient that a match was found
 
     :param submission: matched Reddit submission
