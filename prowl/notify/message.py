@@ -14,9 +14,18 @@ def generate_message(submission, template: Template) -> str:
     :return: message
     """
 
+    url: str = validate_url(submission)
+
     return template.substitute(title=submission.title,
-                               link=submission.url,
+                               link=url,
                                post=submission.selftext)
+
+
+def validate_url(submission) -> str:
+    if hasattr(submission, 'url'):
+        return submission.url
+    else:
+        return 'https://www.reddit.com/r/mechmarket/new/'
 
 
 def get_template(template: str) -> Template:
