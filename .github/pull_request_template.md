@@ -19,4 +19,5 @@ Related: # <!-- number of issue/pull request, or link to external discussion -->
 
 - [ ] Run `python -m pytest` and ensure tests pass
 - [ ] Run `pylint **/*.py` and ensure linter passes
+- [ ] Run `python -m prowl` and ensure prowl runs
 - [ ] Update documentation / not applicable

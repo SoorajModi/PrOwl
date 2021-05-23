@@ -8,7 +8,6 @@ with open('LICENSE') as f:
     license = f.read()
 
 
-# the setup
 setup(
     name='PrOwl',
     version='0.1.0',
@@ -26,10 +25,10 @@ setup(
     packages=find_packages(exclude=('docs', 'test', 'env', 'index.py')),
     include_package_data=True,
     install_requires=[
+        'requests',
+        'praw',
+        'python-dotenv',
+        'pytest',
+        'pylint',
     ],
-    extras_require={
-        'dev': [],
-        'docs': [],
-        'testing': [],
-    },
 )
