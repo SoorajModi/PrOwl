@@ -37,9 +37,5 @@ def handle_submission(submission) -> None:
     logging.info('Scanning submission...%s', submission.title)
 
     if contains_keywords(submission.selftext, KEYWORD):
-        logging.warning('Match found...{{\n'
-                        '\title: %s,\n'
-                        '\tlink: %s,\n'
-                        '\tcontent: %s\n}}',
-                        submission.title, submission.link, submission.selftext)
+        logging.warning('Match found...{\n%s\n}\n', submission.__dict__)
         notify(submission, TEMPLATE)
