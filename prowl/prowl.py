@@ -42,5 +42,6 @@ def handle_submission(submission) -> None:
                         '\tposted: %s,\n'
                         '\tlink: %s,\n'
                         '\tcontent: %s\n}}',
-                        submission.title, submission.created_utc, submission.url, submission.selftext)
+                        submission.title, submission.created_utc,
+                        submission.url, submission.selftext)
         notify(submission, TEMPLATE)
