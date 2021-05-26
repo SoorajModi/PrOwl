@@ -17,6 +17,7 @@ def generate_message(submission, template: Template) -> str:
     url: str = validate_url(submission)
 
     return template.substitute(title=submission.title,
+                               time=submission.created_utc,
                                link=url,
                                post=submission.selftext)
 
