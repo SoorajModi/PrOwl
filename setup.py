@@ -13,7 +13,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='PrOwl',
-    version='0.1.0',
+    version='1.0.0',
     description='A Reddit Bot',
     long_description=readme,
     url='https://github.com/soorajmodi/prowl',
