@@ -1,5 +1,21 @@
-Title: $title
-Link: $link
-Post: $post
+--------------------
+    METADATA
+--------------------
 
-Hoot hoot <3
+Title: $title
+Time: $time
+Link: $link
+
+--------------------
+--------------------
+    START POST
+--------------------
+
+$post
+
+--------------------
+    END POST
+--------------------
+--------------------
+
+This was an automated message sent by PrOwl, hoot hoot <3
