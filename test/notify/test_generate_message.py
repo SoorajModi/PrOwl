@@ -2,16 +2,16 @@ from string import Template
 from prowl.notify.message import generate_message
 
 
-class Object(object):
-    pass
+class MockAuthor(object):
+    def __init__(self, name):
+        self.name = name
 
 
 class MockSubmission(object):
     def __init__(self, title, time, author, url, selftext):
         self.title = title
         self.created_utc = time
-        self.author = Object
-        self.author.name = author
+        self.author = MockAuthor(author)
         self.url = url
         self.selftext = selftext
 
