@@ -16,6 +16,7 @@ def generate_message(submission, template: Template) -> str:
 
     return template.substitute(title=submission.title,
                                time=submission.created_utc,
+                               author=submission.author.name,
                                link=submission.url,
                                post=submission.selftext)
 
