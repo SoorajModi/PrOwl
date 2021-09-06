@@ -4,6 +4,7 @@
 
 Title: $title
 Time: $time
+Author: $author
 Link: $link
 
 ========================================
