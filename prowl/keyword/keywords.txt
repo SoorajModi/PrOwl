@@ -2,6 +2,8 @@ Latrialum
 latrialum
 Lats
 lats
+Lat
+lat
 piplup
 Piplup
 Shori
