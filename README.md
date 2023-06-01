@@ -1,3 +1,7 @@
+![CI](https://github.com/SoorajModi/prowl/workflows/CI/badge.svg)
+![License](https://img.shields.io/github/license/soorajmodi/prowl)
+
+
 # PrOwl
 
 Python Reddit Owl (PrOwl), a watch bot for Reddit. 
